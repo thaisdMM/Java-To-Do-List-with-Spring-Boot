@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/primeiraRota")
-//ROTA: http:/localhost:8080/ ---
+//ROTA: http:/localhost:8080/ ------
 public class MinhaPrimeiraController {
 
   /**
@@ -23,12 +23,8 @@ public class MinhaPrimeiraController {
 
    //Método (Funcionalidade) de uma classe
 
-   @GetMapping("/")
-   public String getMethodName(@RequestParam String param) {
-       return new String();
-   }
-   
-  public String primeiramensagem() {
+   @GetMapping("/primeiroMetodo")
+    public String primeiramensagem() {
     return "Funcionou";
   }
   
