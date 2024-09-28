@@ -28,13 +28,12 @@ public class UserController {
     var user = this.userRepository.findByUsername(userModel.getUsername());
 
     if(user != null) {
-      System.out.println("Usuário já existe");
       //Retornar mensagem de erro
       // Status Code - são os "numeros" dos status da requisição ApiDog - por padrão http tem satus code
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usuário já existe");
     }
     var userCreated = this.userRepository.save(userModel);
-    return userCreated;
+    return ResponseEntity.status(HttpStatus.CREATED).body(userCreated);
   }
   
 }
