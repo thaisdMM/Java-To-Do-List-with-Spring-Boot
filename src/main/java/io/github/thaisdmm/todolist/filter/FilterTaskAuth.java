@@ -14,13 +14,13 @@ import jakarta.servlet.http.HttpServletResponse;
 public class FilterTaskAuth extends OncePerRequestFilter {
 
   @Override
-  protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-      throws ServletException, IOException {
-    
-// Pegar a autenticação (usuário e senha)
-      var autorization = request.getHeader("Autorization");
-      System.out.println("Autorization");
-      System.out.println(autorization);
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
+              
+// Pegar a autenticação(usuário e senha)
+              var autorization = request.getHeader("Autorization");
+              System.out.println("Autorization");
+              System.out.println(autorization);
 
 
 // Validar usuário
@@ -29,8 +29,7 @@ public class FilterTaskAuth extends OncePerRequestFilter {
 
 //Segue viagem
 
-
-        filterChain.doFilter(request, response);
-  
-}
+filterChain.doFilter(request, response);
+  }
+ 
 }
