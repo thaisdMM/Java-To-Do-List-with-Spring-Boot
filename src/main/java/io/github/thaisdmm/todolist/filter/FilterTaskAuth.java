@@ -5,11 +5,8 @@ import java.io.IOException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -19,9 +16,21 @@ public class FilterTaskAuth extends OncePerRequestFilter {
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
       throws ServletException, IOException {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'doFilterInternal'");
-  }
+    
+// Pegar a autenticação (usuário e senha)
+      var autorization = request.getHeader("Autorization");
+      System.out.println("Autorization");
+      System.out.println(autorization);
 
+
+// Validar usuário
+
+// Validar Senha
+
+//Segue viagem
+
+
+        filterChain.doFilter(request, response);
   
+}
 }
