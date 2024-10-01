@@ -18,10 +18,10 @@ public class FilterTaskAuth extends OncePerRequestFilter {
             throws ServletException, IOException {
               
 // Pegar a autenticação(usuário e senha)
-              var autorization = request.getHeader("Autorization");
+              var authorization = request.getHeader("Authorization");
               
-              var user_password = autorization.substring("Basic".length()).trim();
-              System.out.println("Autorization");
+              var user_password = authorization.substring("Basic".length()).trim();
+              System.out.println("Authorization");
               System.out.println(user_password);
 
 
