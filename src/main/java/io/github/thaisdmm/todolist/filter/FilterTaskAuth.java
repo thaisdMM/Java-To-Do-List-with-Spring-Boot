@@ -17,10 +17,10 @@ public class FilterTaskAuth extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
               
-// Pegar a autenticação(usuário e senha)
-              var autorization = request.getHeader("Autorization");
-              System.out.println("Autorization");
-              System.out.println(autorization);
+//*  Pegar a autenticação(usuário e senha)
+      //        var autorization = request.getHeader("Autorization");
+       //       System.out.println("Autorization");
+       //       System.out.println(autorization);
 
 
 // Validar usuário
