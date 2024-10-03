@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.servlet.http.HttpServletRequest;
+import java.util.*;
 
 @RestController
 @RequestMapping("/tasks")
@@ -17,7 +18,9 @@ public class TaskContreller {
 
   @PostMapping("/")
   public TaskModel create(@RequestBody TaskModel taskModel, HttpServletRequest request){
-    System.out.println("Chegou no controller" + request.getAttribute("idUser"));
+    System.out.println("Chegou no controller");
+    var idUser = request.getAttribute("idUser");
+    taskModel.setIdUser((UUID) idUser);
     var task = this.taskRepository.save(taskModel);
     return task;
   
