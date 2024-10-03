@@ -31,8 +31,8 @@ public class TaskContreller {
     var currentDate = LocalDateTime.now();
     // 03/10/2024 - current
     // 03/09/2023 - startAt
-    if(currentDate.isAfter(taskModel.getStartAt())) {
-      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("A data de início deve ser maiordo que a data atual");
+    if(currentDate.isAfter(taskModel.getStartAt()) || currentDate.isAfter(taskModel.getEndAt())) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("A data de início e data de término deve ser maior do que a data atual");
     }
 
 
