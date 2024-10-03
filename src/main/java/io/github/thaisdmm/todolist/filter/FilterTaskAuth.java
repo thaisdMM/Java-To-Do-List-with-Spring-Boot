@@ -2,6 +2,8 @@ package io.github.thaisdmm.todolist.filter;
 
 import java.io.IOException;
 
+import java.util.*;
+
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -20,10 +22,14 @@ public class FilterTaskAuth extends OncePerRequestFilter {
 // Pegar a autenticação(usuário e senha)
               var authorization = request.getHeader("Authorization");
               
-              var user_password = authorization.substring("Basic".length()).trim();
-              System.out.println("Authorization");
-              System.out.println(user_password);
+              var authEncoded = authorization.substring("Basic".length()).trim();
 
+              byte[] authDecode = Base64.getDecoder().decode(authEncoded);
+
+              System.out.println("Authorization");
+              System.out.println(authDecode);
+             
+        
 
 
 // Validar usuário
