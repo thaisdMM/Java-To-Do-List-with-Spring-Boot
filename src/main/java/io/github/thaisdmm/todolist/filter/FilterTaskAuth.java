@@ -26,10 +26,10 @@ public class FilterTaskAuth extends OncePerRequestFilter {
 
               byte[] authDecode = Base64.getDecoder().decode(authEncoded);
 
+              var authString = new String(authDecode);
+
               System.out.println("Authorization");
-              System.out.println(authDecode);
-             
-        
+              System.out.println(authString);
 
 
 // Validar usuário
