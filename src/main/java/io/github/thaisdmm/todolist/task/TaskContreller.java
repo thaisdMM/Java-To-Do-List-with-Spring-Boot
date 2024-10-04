@@ -56,7 +56,7 @@ public class TaskContreller {
   }
   // http://localhost:8080/tasks/892347823-csdassdf-83232534
   @PutMapping("/{id}")
-  public TaskModel update(@RequestBody TaskModel taskModel, HttpServletRequest request, @PathVariable UUID id) {
+  public TaskModel update(@RequestBody TaskModel taskModel, @PathVariable UUID id, HttpServletRequest request) {
     
     var idUser = request.getAttribute("idUser");
     System.out.println("IDUSER" + "idUser");
