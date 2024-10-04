@@ -16,6 +16,10 @@ public class Ultils {
 
   public String[] getNullPropertyNames(Object source) {
     final BeanWrapper src = new BeanWrapperImpl (source);
+
+    PropertyDescriptor[] pds = src.getPropertyDescriptors();
+
+    Set<String> emptyNames = new HashSet<>();
     
     
   }
