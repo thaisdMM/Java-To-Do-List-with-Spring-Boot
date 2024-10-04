@@ -58,16 +58,12 @@ public class TaskContreller {
   // http://localhost:8080/tasks/892347823-csdassdf-83232534
   @PutMapping("/{id}")
   public TaskModel update(@RequestBody TaskModel taskModel, @PathVariable UUID id, HttpServletRequest request) {
-    
-    var idUser = request.getAttribute("idUser");
 
-    var task = this.taskRepository.findById(id);
+    var task = this.taskRepository.findById(id).orElse(null);
 
     Utils.coppyNonNullProperties(taskModel, task);
 
-    taskModel.setIdUser((UUID) idUser);
-    taskModel.setId(id);
-    return this.taskRepository.save(taskModel);
+    return this.taskRepository.save(task);
 
   }
 }
