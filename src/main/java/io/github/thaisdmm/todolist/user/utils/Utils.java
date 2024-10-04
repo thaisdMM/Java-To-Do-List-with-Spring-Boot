@@ -9,13 +9,13 @@ import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 
 
-public class Ultils {
+public class Utils {
 
-  public void coppyNonNullProperties(Object source, Object target) {
+  public static  void coppyNonNullProperties(Object source, Object target) {
     BeanUtils.copyProperties(source, target, getNullPropertyNames(source));
   }
 
-  public String[] getNullPropertyNames(Object source) {
+  public static  String[] getNullPropertyNames(Object source) {
     final BeanWrapper src = new BeanWrapperImpl (source);
 
     PropertyDescriptor[] pds = src.getPropertyDescriptors();
