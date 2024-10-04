@@ -59,7 +59,6 @@ public class TaskContreller {
   public TaskModel update(@RequestBody TaskModel taskModel, @PathVariable UUID id, HttpServletRequest request) {
     
     var idUser = request.getAttribute("idUser");
-    System.out.println("IDUSER" + "idUser");
     taskModel.setIdUser((UUID) idUser);
     taskModel.setId(id);
     return this.taskRepository.save(taskModel);
