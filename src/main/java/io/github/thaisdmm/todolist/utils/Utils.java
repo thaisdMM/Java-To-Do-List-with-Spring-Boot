@@ -1,4 +1,4 @@
-package io.github.thaisdmm.todolist.user.utils;
+package io.github.thaisdmm.todolist.utils;
 
 import java.beans.PropertyDescriptor;
 import java.util.HashSet;
