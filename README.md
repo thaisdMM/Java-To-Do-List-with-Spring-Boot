@@ -18,6 +18,7 @@ Built while following a Rocketseat Java mini-course.
 
 | Method | Path | Auth | What it does |
 |---|---|---|---|
+| `GET` | `/` | none | Returns the API name and a link to this README |
 | `POST` | `/users/` | none | Creates a user |
 | `POST` | `/tasks/` | Basic | Creates a task for the authenticated user |
 | `GET` | `/tasks/` | Basic | Lists the authenticated user's tasks |
@@ -83,6 +84,7 @@ There is one smoke test, which checks that the application context starts.
 
 ```
 src/main/java/io/github/thaisdmm/todolist/
+├── home/     # root route with the API name and a link to this README
 ├── user/     # user entity, repository and sign-up route
 ├── task/     # task entity, repository and task routes
 ├── filter/   # Basic Auth filter for /tasks/
