@@ -31,15 +31,31 @@ public class FilterTaskAuth extends OncePerRequestFilter {
 
               // Pegar a autenticação(usuário e senha)
                 var authorization = request.getHeader("Authorization");
-              
+
+                // Sem o cabeçalho Basic não há credenciais para validar
+                if(authorization == null || !authorization.startsWith("Basic ")) {
+                  response.sendError(401);
+                  return;
+                }
+
                 var authEncoded = authorization.substring("Basic".length()).trim();
 
-                byte[] authDecode = Base64.getDecoder().decode(authEncoded);
+                byte[] authDecode;
+                try {
+                  authDecode = Base64.getDecoder().decode(authEncoded);
+                } catch (IllegalArgumentException e) {
+                  response.sendError(401);
+                  return;
+                }
 
                 var authString = new String(authDecode);
 
               //["thaismoreira"[0], "12345"[1]]
-                String [] credentials = authString.split(":");
+                String [] credentials = authString.split(":", 2);
+                if(credentials.length < 2) {
+                  response.sendError(401);
+                  return;
+                }
                 String username = credentials[0];
                 String password = credentials[1];
               
